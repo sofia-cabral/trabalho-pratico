@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lumière | Espaço Laser & Estética de Luxo</title>
+  
+  <!-- Fontes do Google -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome para Ícones -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Arquivo de Estilos Externo -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- CABEÇALHO -->
+  <header class="navbar" id="header">
+    <div class="container nav-container">
+      <a href="#hero" class="logo">
+        <i class="fa-solid fa-sparkles"></i> Lumière
+      </a>
+      
+      <nav class="nav-menu" id="nav-menu">
+        <a href="#hero" class="nav-link active">Início</a>
+        <a href="#areas" class="nav-link">Áreas & Tratamentos</a>
+        <a href="#calculadora" class="nav-link">Calculadora</a>
+        <a href="#tecnologias" class="nav-link">Diferenciais</a>
+        <a href="#agendamento" class="nav-link highlight">Agendar Sessão</a>
+        <a href="#faq" class="nav-link">FAQ</a>
+      </nav>
+
+      <div class="mobile-toggle" id="mobile-toggle">
+        <i class="fa-solid fa-bars"></i>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section class="hero" id="hero">
+    <div class="hero-bg-overlay"></div>
+    <div class="container hero-container">
+      <div class="hero-content">
+        <span class="badge"><i class="fa-solid fa-snowflake"></i> Tecnologia Cryo-Cooling -9°C sem dor</span>
+        <h1 class="hero-title">Sua pele impecável com a elegância que você merece</h1>
+        <p class="hero-description">Depilação a Laser Triplo Diodo de última geração e tratamentos estéticos avançados. Resultados visíveis desde a 1ª sessão com o máximo conforto.</p>
+        <div class="hero-btns">
+          <a href="#agendamento" class="btn btn-primary"><i class="fa-regular fa-calendar-check"></i> Agendar Agora</a>
+          <a href="#calculadora" class="btn btn-secondary"><i class="fa-solid fa-calculator"></i> Simular Pacote</a>
+        </div>
+      </div>
+      <div class="hero-image-wrapper">
+        <div class="hero-image-card">
+          <img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=800&q=80" alt="Estética e Laser Lumière" class="hero-img">
+          <div class="floating-badge badge-1">
+            <i class="fa-solid fa-award"></i>
+            <div>
+              <strong>100% Seguro</strong>
+              <small>Aprovado pela ANVISA</small>
+            </div>
+          </div>
+          <div class="floating-badge badge-2">
+            <i class="fa-solid fa-star"></i>
+            <div>
+              <strong>4.9 / 5.0</strong>
+              <small>Mais de 3.000 clientes</small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ÁREAS DO CORPO -->
+  <section class="section" id="areas">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-subtitle">Personalizado para Você</span>
+        <h2 class="section-title">Explore as Áreas de Tratamento</h2>
+        <div class="section-divider"></div>
+      </div>
+
+      <div class="gender-tabs">
+        <button class="tab-btn active" id="tab-fem" onclick="switchGender('feminino')"><i class="fa-solid fa-venus"></i> Público Feminino</button>
+        <button class="tab-btn" id="tab-masc" onclick="switchGender('masculino')"><i class="fa-solid fa-mars"></i> Público Masculino</button>
+      </div>
+
+      <div class="areas-grid" id="areas-grid">
+        <!-- Áreas inseridas dinamicamente via JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- CALCULADORA DE PACOTES -->
+  <section class="section section-alt" id="calculadora">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-subtitle">Monte seu Pacote</span>
+        <h2 class="section-title">Calculadora Dinâmica de Descontos</h2>
+        <p class="section-desc">Selecione 2 áreas para ganhar <strong>10% OFF</strong> ou 3+ áreas para ganhar <strong>25% OFF</strong>!</p>
+        <div class="section-divider"></div>
+      </div>
+
+      <div class="calc-wrapper">
+        <div class="calc-selection">
+          <h3><i class="fa-solid fa-list-check"></i> Escolha as Áreas Desejadas:</h3>
+          <div class="calc-options" id="calc-options">
+            <!-- Opções inseridas via JS -->
+          </div>
+        </div>
+
+        <div class="calc-summary">
+          <div class="summary-card">
+            <h3><i class="fa-solid fa-receipt"></i> Resumo do Pacote</h3>
+            <div class="summary-items" id="summary-items">
+              <p class="empty-text">Nenhuma área selecionada ainda.</p>
+            </div>
+            
+            <div class="summary-totals">
+              <div class="total-row">
+                <span>Valor Subtotal:</span>
+                <span id="subtotal-val">R$ 0,00</span>
+              </div>
+              <div class="total-row discount" id="discount-row" style="display: none;">
+                <span>Desconto Aplicado:</span>
+                <span id="discount-val">- R$ 0,00</span>
+              </div>
+              <div class="total-row final">
+                <span>Total por Sessão:</span>
+                <span id="final-val">R$ 0,00</span>
+              </div>
+            </div>
+
+            <button class="btn btn-whatsapp btn-block" onclick="sendCalcToWhatsApp()">
+              <i class="fa-brands fa-whatsapp"></i> Receber Orçamento no WhatsApp
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TECNOLOGIAS E DIFERENCIAIS -->
+  <section class="section" id="tecnologias">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-subtitle">Tecnologia & Segurança</span>
+        <h2 class="section-title">Nossos Diferenciais de Luxo</h2>
+        <div class="section-divider"></div>
+      </div>
+
+      <div class="tech-grid">
+        <div class="tech-card">
+          <div class="tech-icon"><i class="fa-solid fa-snowflake"></i></div>
+          <h3>Cryo-Cooling -9°C</h3>
+          <p>Ponteira ultraresfriada que anestesia a pele antes do disparo, garantindo um tratamento praticamente indolor e seguro.</p>
+        </div>
+        <div class="tech-card">
+          <div class="tech-icon"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+          <h3>Laser Triplo Onda</h3>
+          <p>Combinação de Alexandrite, Diodo e ND:YAG no mesmo disparo, tratando todos os fototipos e profundidades de pelo.</p>
+        </div>
+        <div class="tech-card">
+          <div class="tech-icon"><i class="fa-solid fa-user-doctor"></i></div>
+          <h3>Corpo Técnico Biomédico</h3>
+          <p>Atendimento exclusivo por biomédicas estetas altamente qualificadas e em constantes treinamentos internacionais.</p>
+        </div>
+        <div class="tech-card">
+          <div class="tech-icon"><i class="fa-solid fa-shield-halved"></i></div>
+          <h3>Certificação ANVISA</h3>
+          <p>Equipamentos de última geração aprovados pelos órgãos reguladores com manutenção preventiva semanal.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SISTEMA DE AGENDAMENTO COMPLETO -->
+  <section class="section section-alt" id="agendamento">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-subtitle">Agende em Segundos</span>
+        <h2 class="section-title">Selecione o Serviço, Data e Horário</h2>
+        <div class="section-divider"></div>
+      </div>
+
+      <div class="booking-card">
+        <form id="bookingForm" onsubmit="handleBooking(event)">
+          <div class="booking-grid">
+            
+            <!-- Etapa 1: Dados Pessoais -->
+            <div class="booking-step">
+              <span class="step-num">1</span>
+              <h3>Seus Dados</h3>
+              <div class="form-group">
+                <label for="client-name">Nome Completo *</label>
+                <input type="text" id="client-name" required placeholder="Ex: Juliana Silva">
+              </div>
+              <div class="form-group">
+                <label for="client-phone">WhatsApp *</label>
+                <input type="tel" id="client-phone" required placeholder="(31) 99999-9999" onkeyup="maskPhone(this)">
+              </div>
+            </div>
+
+            <!-- Etapa 2: Escolha do Tratamento -->
+            <div class="booking-step">
+              <span class="step-num">2</span>
+              <h3>O que deseja fazer?</h3>
+              <div class="form-group">
+                <label for="service-select">Selecione o Serviço *</label>
+                <select id="service-select" required>
+                  <option value="" disabled selected>Escolha uma opção...</option>
+                  <optgroup label="Depilação a Laser - Feminino">
+                    <option value="Laser Feminino - Axilas">Laser Axilas (R$ 79/sessão)</option>
+                    <option value="Laser Feminino - Virilha Completa">Laser Virilha Completa (R$ 149/sessão)</option>
+                    <option value="Laser Feminino - Pernas Inteiras">Laser Pernas Inteiras (R$ 219/sessão)</option>
+                    <option value="Laser Feminino - Buço / Rosto">Laser Buço / Rosto (R$ 59/sessão)</option>
+                  </optgroup>
+                  <optgroup label="Depilação a Laser - Masculino">
+                    <option value="Laser Masculino - Barba Completa">Laser Barba Completa (R$ 129/sessão)</option>
+                    <option value="Laser Masculino - Peitoral + Abdômen">Laser Peitoral + Abdômen (R$ 229/sessão)</option>
+                    <option value="Laser Masculino - Costas">Laser Costas (R$ 199/sessão)</option>
+                  </optgroup>
+                  <optgroup label="Estética Avançada">
+                    <option value="Rejuvenescimento Facial com Laser">Rejuvenescimento Facial com Laser (R$ 299/sessão)</option>
+                    <option value="Tratamento para Foliculite">Tratamento para Foliculite (R$ 189/sessão)</option>
+                    <option value="Remoção de Manchas Laser">Remoção de Manchas Laser (R$ 249/sessão)</option>
+                  </optgroup>
+                </select>
+              </div>
+            </div>
+
+            <!-- Etapa 3: Data e Horário -->
+            <div class="booking-step">
+              <span class="step-num">3</span>
+              <h3>Data e Horário</h3>
+              <div class="form-group">
+                <label for="booking-date">Data Desejada *</label>
+                <input type="date" id="booking-date" required>
+              </div>
+              <div class="form-group">
+                <label for="booking-time">Horário Preferencial *</label>
+                <select id="booking-time" required>
+                  <option value="" disabled selected>Selecione a hora...</option>
+                  <option value="08:00">08:00</option>
+                  <option value="09:30">09:30</option>
+                  <option value="11:00">11:00</option>
+                  <option value="13:30">13:30</option>
+                  <option value="15:00">15:00</option>
+                  <option value="16:30">16:30</option>
+                  <option value="18:00">18:00</option>
+                  <option value="19:00">19:00</option>
+                </select>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="booking-footer">
+            <button type="submit" class="btn btn-primary btn-lg">
+              <i class="fa-solid fa-calendar-check"></i> Confirmar & Enviar Agendamento
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- DEPOIMENTOS -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-subtitle">Aprovação Garantida</span>
+        <h2 class="section-title">O que dizem nossas clientes</h2>
+        <div class="section-divider"></div>
+      </div>
+
+      <div class="testimonials-grid">
+        <div class="testimonial-card">
+          <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+          <p>"Atendimento impecável! O resfriamento da ponteira realmente não deixa sentir dor. Fiz axila e virilha e na 3ª sessão já não tinha quase nada."</p>
+          <div class="client-info">
+            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=150&q=80" alt="Cliente">
+            <div>
+              <strong>Mariana Costa</strong>
+              <small>Cliente Lumière</small>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+          <p>"Como homem, tinha receio de fazer a barba. A equipe foi hiper profissional e resolveu meu problema de foliculite. Recomendo de olhos fechados!"</p>
+          <div class="client-info">
+            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=150&q=80" alt="Cliente">
+            <div>
+              <strong>Lucas Andrade</strong>
+              <small>Cliente Lumière</small>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+          <p>"A clínica é um luxo, super cheirosa e organizada. A calculadora no site ajudou muito a montar meu pacote. Já sou fã número um."</p>
+          <div class="client-info">
+            <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=150&q=80" alt="Cliente">
+            <div>
+              <strong>Camila Rocha</strong>
+              <small>Cliente Lumière</small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section section-alt" id="faq">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-subtitle">Tire suas Dúvidas</span>
+        <h2 class="section-title">Perguntas Frequentes</h2>
+        <div class="section-divider"></div>
+      </div>
+
+      <div class="faq-container">
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)">
+            <span>A depilação a laser dói?</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </div>
+          <div class="faq-answer">
+            <p>Com a nossa tecnologia de resfriamento Cryo-Cooling a -9°C, o desconforto é reduzido ao mínimo, proporcionando uma sessão extremamente confortável em comparação com lasers antigos.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)">
+            <span>Quantas sessões são necessárias?</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </div>
+          <div class="faq-answer">
+            <p>Em média recomendam-se de 8 a 10 sessões para a eliminação completa dos pelos, variando de acordo com a área do corpo e a genética individual.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)">
+            <span>Posso tomar sol durante o tratamento?</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </div>
+          <div class="faq-answer">
+            <p>Recomendamos evitar a exposição solar direta na área tratada 7 dias antes e 7 dias após a sessão, além de fazer uso constante de protetor solar.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RODAPÉ -->
+  <footer class="footer">
+    <div class="container footer-container">
+      <div class="footer-about">
+        <a href="#hero" class="logo"><i class="fa-solid fa-sparkles"></i> Lumière</a>
+        <p>Referência em depilação a laser e estética avançada. Sofisticação e resultados reais em cada detalhe.</p>
+      </div>
+      <div class="footer-links">
+        <h4>Acesso Rápido</h4>
+        <a href="#hero">Início</a>
+        <a href="#areas">Tratamentos</a>
+        <a href="#calculadora">Calculadora</a>
+        <a href="#agendamento">Agendar Horário</a>
+      </div>
+      <div class="footer-contact">
+        <h4>Contato & Localização</h4>
+        <p><i class="fa-solid fa-location-dot"></i> Av. das Américas, 5000 - Barra da Tijuca</p>
+        <p><i class="fa-solid fa-phone"></i> (31) 99999-9999</p>
+        <p><i class="fa-solid fa-envelope"></i> contato@lumierelaser.com.br</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Lumière Espaço Laser & Estética. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+  <!-- BOTÃO FLUTUANTE WHATSAPP -->
+  <a href="https://wa.me/553123089765?text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20os%20tratamentos%20da%20Lumière." target="_blank" class="whatsapp-float" title="Fale pelo WhatsApp">
+    <i class="fa-brands fa-whatsapp"></i>
+  </a>
+
+  <!-- MODAL DE CONFIRMAÇÃO DO AGENDAMENTO -->
+  <div class="modal-overlay" id="bookingModal">
+    <div class="modal-content">
+      <div class="modal-icon"><i class="fa-solid fa-circle-check"></i></div>
+      <h3>Pré-Agendamento Criado!</h3>
+      <p>Sua solicitação foi registrada com sucesso. Clique abaixo para enviar as informações diretamente ao nosso atendimento no WhatsApp para finalizar.</p>
+      <div class="modal-details" id="modalDetails"></div>
+      <button class="btn btn-whatsapp btn-block" id="modalWhatsappBtn">
+        <i class="fa-brands fa-whatsapp"></i> Confirmar no WhatsApp
+      </button>
+      <button class="modal-close-btn" onclick="closeModal()">Fechar</button>
+    </div>
+  </div>
+
+  <!-- Arquivo JavaScript Externo -->
+  <script src="script.js"></script>
+</body>
+</html>
